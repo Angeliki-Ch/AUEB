@@ -2,6 +2,6 @@
 AUEB assignments
 Stasinos Karampatsos
 
-Packages in stalled in R
+Packages installed in R
 Rcurl
 mosaic

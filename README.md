@@ -11,3 +11,4 @@ import to R sep commas
 problems: encoding, upload csv, create dataframe gia plots
 
 cleaned workspace, rename data.frame to data2014
+install stringi

@@ -1,0 +1,20 @@
+#Insert Data from TAB separated txt file
+data2014TAB <- read.delim("C:/Users/Tagami/Downloads/data2014TAB.txt", header=F)
+#Clean Dataset by dropping scrambled Greek names. Luckily there are English names as well
+clean_data2014TAB<-data2014TAB[3:205, 2:15]
+#make a month vector
+months<-c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+#make a header vector
+clean_data2014TAB_header<-months
+clean_data2014TAB_header[13]<-"TOTAL"
+clean_data2014TAB_header[14]<-"Museum"
+# change column names
+colnames(clean_data2014TAB)<-clean_data2014TAB_header
+#take the trash out
+clean_data2014TAB<-clean_data2014TAB[-1,]
+# row names fix
+rownames(clean_data2014TAB)<-clean_data2014TAB$Museum
+# finding the dept
+dept_clean_data2014TAB<-clean_data2014TAB[grep("Department", rownames(clean_data2014TAB)), ]
+# dropping the dept, plot data achieved
+plotdata<-clean_data2014TAB[-grep(("Department"), rownames(clean_data2014TAB)), ]

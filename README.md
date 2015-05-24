@@ -15,3 +15,4 @@ install stringi
 
 excel file->save as Unicode Text, tab delimited by default
 
+install ggvis, ggplot2

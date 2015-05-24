@@ -1,5 +1,5 @@
-#Insert Data from TAB separated txt file
-data2014TAB <- read.delim("C:/Users/Tagami/Downloads/data2014TAB.txt", header=F)
+#Insert Data from TAB separated txt file, "C:/Users/Tagami/Downloads/data2014TAB.txt"
+data2014TAB <- read.delim(file.choose(), header=F)
 #Clean Dataset by dropping scrambled Greek names. Luckily there are English names as well
 clean_data2014TAB<-data2014TAB[3:205, 2:15]
 #make a month vector

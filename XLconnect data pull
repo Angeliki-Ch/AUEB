@@ -1,0 +1,8 @@
+# XLsheet intro to R
+require(XLConnect)
+wb <- loadWorkbook("C:/Users/Tagami/Documents/R/Spinellis/data2014.xlsx", create=TRUE)
+data=readWorksheet(wb, sheet="2014", startRow=3, endRow=205, startCol=0, endCol=0)
+# row names fix
+rownames(data)<-data$Museums
+# dropping the dept, plot data achieved
+plotdata<-data[-grep(("Department"), rownames(data)), ]

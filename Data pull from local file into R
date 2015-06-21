@@ -1,0 +1,24 @@
+# XLsheet into R from local file
+require(XLConnect)
+wb <- loadWorkbook("C:/Users/Tagami/Documents/R/Spinellis/data2014.xlsx", create=TRUE)
+data<-readWorksheet(wb, sheet="2014", startRow=3, endRow=205, startCol=0, endCol=0)
+
+# row names fix
+rownames(data)<-data$Museums
+
+# dropping the department, sorting by Name
+rawdata<-data[-grep(("Department"), rownames(data)), ]
+plotdata<-rawdata[,-1]
+plotdata<-plotdata[,-14]
+plotdata <- plotdata[ order(row.names(plotdata)), ]
+
+# Adding Column Names
+colnames(plotdata)<-c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "TOTAL")
+
+#Fixing total admissions
+totaladmissions<-as.vector(plotdata[grep(("Admissions"), rownames(plotdata)), ])
+plotdata<-plotdata[-grep(("Admissions"), rownames(plotdata)), ]
+plotdata<-rbind(plotdata, totaladmissions)
+
+# Transpose plotdata to use in shiny app
+tplotdata<-t(plotdata)

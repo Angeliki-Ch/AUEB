@@ -1,6 +1,6 @@
-# XLsheet into R from local file
+# XLsheet into R from local file, needs editing for local file location
 require(XLConnect)
-wb <- loadWorkbook("C:/Users/Tagami/Documents/R/Spinellis/data2014.xlsx", create=TRUE)
+wb <- loadWorkbook("~/data2014.xlsx", create=TRUE)
 data<-readWorksheet(wb, sheet="2014", startRow=3, endRow=205, startCol=0, endCol=0)
 
 # row names fix

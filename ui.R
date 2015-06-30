@@ -6,14 +6,14 @@ shinyUI(
   fluidPage(    
     
     # Give the page a title
-    titlePanel("Museum by Month"),
+    titlePanel("Museum by Month of Year 2014"),
     
     # Generate a row with a sidebar
     sidebarLayout(      
       
       # Define the sidebar with one input
       sidebarPanel(
-        selectInput("Month", "Month:", 
+        selectInput("Museum", "Museum:", 
                     choices=colnames(tplotdata)),
         hr(),
         helpText("Data from ELSTAT")
@@ -21,7 +21,11 @@ shinyUI(
       
       # Create a spot for the barplot
       mainPanel(
-        plotOutput("museumPlot")  
+        plotOutput("museumPlot"),
+        
+        h1("First level title")
+
+        
       )
       
     )

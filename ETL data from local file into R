@@ -1,6 +1,6 @@
-# XLsheet into R from local file, needs editing for local file location
+# XLsheet into R from local file
 require(XLConnect)
-wb <- loadWorkbook("~/data2014.xlsx", create=TRUE)
+wb <- loadWorkbook("C:/Users/Tagami/Documents/R/Spinellis/data2014.xlsx", create=TRUE)
 data<-readWorksheet(wb, sheet="2014", startRow=3, endRow=205, startCol=0, endCol=0)
 
 # row names fix
@@ -14,11 +14,18 @@ plotdata <- plotdata[ order(row.names(plotdata)), ]
 
 # Adding Column Names
 colnames(plotdata)<-c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "TOTAL")
-
+plotdata<-plotdata[-13]
 #Fixing total admissions
 totaladmissions<-as.vector(plotdata[grep(("Admissions"), rownames(plotdata)), ])
 plotdata<-plotdata[-grep(("Admissions"), rownames(plotdata)), ]
-plotdata<-rbind(plotdata, totaladmissions)
+#plotdata<-rbind(plotdata, totaladmissions)
+
+# Find maximum visitors in each Museum
+maxvisitors<-apply(plotdata, 1, max)
+
+# Add max visitor column
+
+plotdata<-cbind(plotdata, maxvisitors)
 
 # Transpose plotdata to use in shiny app
 tplotdata<-t(plotdata)

@@ -1,4 +1,4 @@
-#AUEB assignments in Engineering Big Data Systems
+#AUEB assignment in Engineering Big Data Systems
 
 Visitors' Traffic to museums of the entire Greek territory during the year 2014
 

@@ -1,7 +1,11 @@
-# AUEB
-AUEB assignments
+#AUEB assignment in Engineering Big Data Systems
 
+Visitors' Traffic to museums of the entire Greek territory during the year 2014
 
-assignment for AUEB Big Data Engineering
+Names: Karampatsos Stasinos,
+       Chatzimoschou Angeliki
+       
+This is an interactive graph presenting the visitors' traffic to every museum in Greece, conscerning the year 2014.
 
-XLConnect library in R required for local file ETL
+Tools: R Studio ( libraries: XL Connect & Shiny )
+Data Source: http://www.statistics.gr/portal/page/portal/ESYE

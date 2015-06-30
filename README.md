@@ -1,6 +1,6 @@
 #AUEB assignments in Engineering Big Data Systems
 
-#Visitors' Traffic to the museums of the entire Greek territory during the year 2014
+Visitors' Traffic to museums of the entire Greek territory during the year 2014
 
 Names: Karampatsos Stasinos,
        Chatzimoschou Angeliki
